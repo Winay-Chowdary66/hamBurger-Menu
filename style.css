@@ -69,6 +69,7 @@ nav {
     }
     .nav-lists { 
         padding-top: 28px;
+        transition:ease 1s;
         border-bottom: 2px solid whitesmoke;
     }
 
@@ -79,49 +80,68 @@ nav {
     }
     
     .bars {
-        width: 33px;
+        width: 29px;
 		height: 7px;
 		background-color: whitesmoke;
         margin-bottom: 5px;
         border-bottom-left-radius: 100%;
         border-top-left-radius: 100%;
+        transition:width 1s;
     }
     
     .bars1,.bars3 {
-        width: 40px;
+        width: 35px;
     }
+    
 
     .bars1,.bars2 {
-        transition: all 1s;
+        transition: width 2s,height 2s, border-radius 2s, transform 1s,ease-in-out 1s;
     }
 
-    .bars2 {
-        margin-right: 20px;
-    }
+    
     
 	.hamBurger {
 		position: absolute;
         right: 5%;
         top: 50%;
 		cursor: pointer;
-		transform: translate(-5%, -40%);
+		transform: translate(-0%, -50%);
 		z-index: 2;
     }
     .bars1.rotate {
         height: 4px;
         border-radius: 0%;
-        transition: ease-in-out 1s;
-        transform: rotate(45deg);
-        width: 50px;
+        transition: cubic-bezier(0.4, 0, 1, 1) 1s;
+        transform: translateY(3.8px) rotate(45deg);
+        width:32px;
     }
     .bars2.rotate {
         height: 4px;
+        top:15%;
         border-radius: 0%;
-        transition: ease-in-out 1s;
-        width: 50px;
-        transform: rotate(-45deg);
+        transition: cubic-bezier(0.4, 0, 1, 1) 1s;
+        width:31px;
+        transform: translateY(-4.5px) rotate(-45deg);
     }
     .bars3.rotate {
         visibility: hidden;
+        width:4px;
+        animation:bounce 1s;
+        border-radius:50%;
+       animation-direction: alternate;
+        transition: ease 1s;
+        animation-timing-function: cubic-bezier(.5, 0.05, 1, .5); 
+        padding:5px;
+        background-color:#000000;
+        margin:auto;
     }
+    @keyframes bounce { 
+            from { 
+                transform: translate3d(4px, 5px, 0); 
+            } 
+            to { 
+                transform: translate3d(2px, -50px, 0); 
+            } 
+    }
+    
 }
